@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Type 2 diabetes — your guide</title>
+<style>
+:root{
+  --ink:#1c2b33; --muted:#4d5f69; --line:#d5e0e5; --bg:#f4f8f9; --card:#ffffff;
+  --brand:#0b6b78; --brand-dk:#084f59; --brand-soft:#e2f1f3;
+  --key:#0b6b78; --key-soft:#e8f4f6;
+  --warn:#b3261e; --warn-soft:#fdecea;
+  --ok:#2e6b3a; --ok-soft:#e9f5ec;
+  --amber:#8a5a00; --amber-soft:#fff4de;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:1.125rem;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 56px}
+header.top{background:linear-gradient(135deg,var(--brand-dk),var(--brand));color:#fff;padding:36px 0 30px}
+header.top .wrap{padding-bottom:0}
+header.top h1{margin:0 0 6px;font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.15;letter-spacing:-.01em}
+header.top p{margin:0;font-size:1.15rem;max-width:44rem;opacity:.95}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);
+  backdrop-filter:blur(4px)}
+nav.toc ol{list-style:none;margin:0 auto;padding:8px 16px;max-width:980px;display:flex;gap:6px;overflow-x:auto;
+  scrollbar-width:thin}
+nav.toc a{display:block;white-space:nowrap;text-decoration:none;color:var(--brand-dk);font-size:.95rem;
+  font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--brand-soft);outline:none;border-color:var(--brand)}
+section.sec{margin-top:34px;scroll-margin-top:64px}
+h2{display:flex;align-items:center;gap:12px;margin:0 0 14px;font-size:1.65rem;line-height:1.2;color:var(--brand-dk)}
+h2 .n{flex:none;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;
+  background:var(--brand);color:#fff;font-size:1.1rem;font-weight:700}
+h3{margin:0 0 6px;font-size:1.2rem;line-height:1.3}
+p{margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:1.25rem}
+li{margin-bottom:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.lead{font-size:1.2rem}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.icon{width:34px;height:34px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.why h3{display:flex;align-items:center;gap:10px;color:var(--brand-dk)}
+.why p{margin:0;color:var(--muted);font-size:1.02rem}
+.keys{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));margin-bottom:14px}
+.key{background:var(--key-soft);border:2px solid var(--key);border-radius:var(--radius);padding:16px 16px 14px;
+  text-align:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.key .lbl{font-size:.95rem;font-weight:700;color:var(--brand-dk);text-transform:uppercase;letter-spacing:.04em}
+.key .big{display:block;font-size:2.5rem;line-height:1.1;font-weight:800;color:var(--key);margin:6px 0 2px}
+.key .big small{font-size:1.15rem;font-weight:700}
+.key .sub{font-size:.98rem;color:var(--ink)}
+.key.blank .big{color:transparent;border-bottom:2px dashed var(--key);margin:14px 12px 8px;height:2.2rem}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.tbl th,.tbl td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.tbl th{background:var(--brand-soft);color:var(--brand-dk);font-size:.95rem}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{font-weight:600;white-space:nowrap}
+.tblwrap{overflow-x:auto;border-radius:var(--radius)}
+.mini{font-size:.98rem;color:var(--muted)}
+.med{border-left:6px solid var(--brand)}
+.med h3 small{display:block;font-size:.95rem;font-weight:500;color:var(--muted)}
+.med.heart{border-left-color:#8c3a6a}
+.med.warnb{border-left-color:var(--amber)}
+.call{border-radius:var(--radius);padding:16px 20px;margin-top:14px;border:2px solid}
+.call h3{margin-bottom:8px}
+.call.amber{background:var(--amber-soft);border-color:#d9a23a;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.call.red{background:var(--warn-soft);border-color:var(--warn);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.call.green{background:var(--ok-soft);border-color:#6fae7b;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.call.red h3{color:var(--warn)}
+.call.amber h3{color:var(--amber)}
+.call.green h3{color:var(--ok)}
+.call ul:last-child{margin-bottom:0}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0 0 12px}
+.steps li{counter-increment:s;position:relative;padding-left:44px;min-height:32px;margin-bottom:10px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;
+  background:var(--ok);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.95rem}
+.write{display:inline-block;min-width:11rem;border-bottom:2px solid var(--ink);height:1.4em;vertical-align:bottom}
+footer.foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+a.skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--brand-dk);padding:8px 12px;z-index:10}
+a.skip:focus{left:8px;top:8px}
+
+/* ---- Clinician layer: hidden by default ---- */
+.clin{display:none}
+body.clin-on .clin{display:block;margin-top:14px;border:1px dashed #8a97a0;background:#f3f1e8;border-radius:10px;
+  padding:10px 14px;font-size:.92rem;line-height:1.45;color:#2a2f33}
+.clin b.t{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#5c6670;margin-bottom:4px}
+.clin ul{margin:0;padding-left:1.1rem}
+.clin li{margin-bottom:3px}
+.cl-toggle{position:fixed;right:6px;bottom:6px;width:22px;height:22px;padding:0;border:0;border-radius:50%;
+  background:transparent;cursor:default;opacity:.16;z-index:20;display:grid;place-items:center}
+.cl-toggle:hover,.cl-toggle:focus-visible{opacity:.55;outline:none}
+.cl-toggle i{display:block;width:6px;height:6px;border-radius:50%;background:#5c6670;box-shadow:0 -8px 0 #5c6670,0 8px 0 #5c6670;transform:rotate(90deg)}
+body.clin-on .cl-toggle{opacity:.5}
+
+@media (max-width:560px){
+  body{font-size:1.06rem}
+  .card{padding:15px 16px}
+  h2{font-size:1.4rem}
+  .tbl td:first-child{white-space:normal}
+}
+@media print{
+  @page{margin:14mm}
+  body{background:#fff;font-size:11pt;line-height:1.45;color:#000}
+  .wrap{padding:0}
+  header.top{background:#fff !important;color:#000;padding:0 0 8px;border-bottom:3px solid #0b6b78}
+  header.top p{opacity:1}
+  nav.toc,.cl-toggle,a.skip,.clin,body.clin-on .clin{display:none !important}
+  section.sec{margin-top:16px;break-inside:auto}
+  .card,.key,.call,.tbl tr{break-inside:avoid}
+  h2{break-after:avoid}
+  .card{border:1px solid #888}
+  .key{border:2.5px solid #000 !important;background:#fff !important}
+  .key .big{color:#000}
+  .call{border:2px solid #000 !important;background:#fff !important}
+  .call h3,.h2,h2,h2 .n{color:#000}
+  h2 .n{background:#fff;border:2px solid #000;color:#000}
+  .steps li::before{background:#fff;border:2px solid #000;color:#000}
+  .med{border-left:6px solid #000}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.500S4 15.500 4 9.500A4.500 4.500 0 0 1 12 7a4.500 4.500 0 0 1 8 2.500c0 6-8 11-8 11z"/></symbol>
+  <symbol id="i-kidney" viewBox="0 0 24 24"><path d="M9 4.500C5.500 5.500 4 9 5 13s4 7 7 6.500c2-.4 2.400-2.200 1.400-3.700-.9-1.300-.4-2.400.6-3.300 1.200-1 1.900-2.200 1.500-3.700C14.700 5.500 12 3.500 9 4.500z" transform="translate(2 0)"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-foot" viewBox="0 0 24 24"><path d="M8.500 21c-2 0-3.200-1.600-2.900-3.800.4-2.800 1.300-4.600 1.300-7.400C6.900 6.800 8.400 4.500 10.700 4.500s3.700 2.300 3.700 5.300c0 2.200-.6 3.500-.6 5.500 0 3-2.300 5.700-5.300 5.700z"/><circle cx="16.500" cy="6.500" r=".9"/><circle cx="18.800" cy="9.500" r=".8"/><circle cx="19.500" cy="13" r=".7"/></symbol>
+  <symbol id="i-nerve" viewBox="0 0 24 24"><polyline points="2,12 6,12 9,5 13,19 16,12 22,12"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Type 2 diabetes — your guide</h1>
+    <p>What it is, what to aim for, and the everyday steps that protect your heart, kidneys, eyes, feet and nerves.</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <ol>
+    <li><a href="#s1">1 What it is</a></li>
+    <li><a href="#s2">2 Why it matters</a></li>
+    <li><a href="#s3">3 Your numbers</a></li>
+    <li><a href="#s4">4 What you can do</a></li>
+    <li><a href="#s5">5 Medicines</a></li>
+    <li><a href="#s6">6 Warning signs</a></li>
+    <li><a href="#s7">7 Next steps</a></li>
+  </ol>
+</nav>
+
+<main id="main" class="wrap">
+
+<!-- 1 -->
+<section class="sec" id="s1" aria-labelledby="h1">
+  <h2 id="h1"><span class="n" aria-hidden="true">1</span>What type 2 diabetes is</h2>
+  <div class="card lead">
+    <p>Your body uses a hormone called <strong>insulin</strong> to move sugar (glucose) from your blood into your cells for energy.</p>
+    <p>In type 2 diabetes, two things happen. Your cells respond less well to insulin (<strong>insulin resistance</strong>), and over time the cells in your pancreas that make insulin slowly make less of it.</p>
+    <p>The result is too much sugar in the blood. This is common, it usually develops slowly, and it can be managed well with food, movement, medicines and regular checks.</p>
+    <p class="mini" style="margin:0">It is not caused by one thing, and it is not your fault. Family history, age, weight and inactivity all play a part.</p>
+  </div>
+  <aside class="clin" aria-hidden="true"><b class="t">Clinician</b><ul>
+    <li>Dx: HbA1c &ge;6.5% (48 mmol/mol) &middot; FBG &ge;7.0 &middot; random / OGTT 2h &ge;11.1 mmol/L. Asymptomatic: 2 abnormal results; symptomatic: 1</li>
+    <li>Equivocal (FBG 5.5&ndash;6.9 / random 5.5&ndash;11.0): OGTT. Pre-DM: IFG 6.1&ndash;6.9, IGT 7.8&ndash;11.0, HbA1c 6.0&ndash;6.4% (42&ndash;46) &rarr; recheck yearly</li>
+    <li>Think T1DM/LADA: ketosis, rapid weight loss, age &lt;50 &rarr; GAD/IA-2 + C-peptide. T2DM &lt;25 y &rarr; endocrinologist</li>
+    <li>HbA1c unreliable: recent postpartum, haemoglobinopathy, haemolysis, iron deficiency, advanced CKD, recent transfusion &rarr; FBG/OGTT</li>
+  </ul></aside>
+</section>
+
+<!-- 2 -->
+<section class="sec" id="s2" aria-labelledby="h2t">
+  <h2 id="h2t"><span class="n" aria-hidden="true">2</span>Why it matters</h2>
+  <p class="lead">Over the years, high blood sugar can damage small and large blood vessels and nerves. The good news: <strong>keeping your numbers in range lowers your risk of these problems.</strong></p>
+  <div class="grid g3 why">
+    <div class="card"><h3><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>Heart and blood vessels</h3><p>Higher risk of heart attack and stroke. Blood pressure and cholesterol matter as much as sugar.</p></div>
+    <div class="card"><h3><svg class="icon" aria-hidden="true"><use href="#i-kidney"/></svg>Kidneys</h3><p>Kidneys can slowly lose filtering ability. A simple urine and blood test finds this early.</p></div>
+    <div class="card"><h3><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg>Eyes</h3><p>Diabetes can affect the back of the eye, often with no symptoms at first. Regular eye checks protect your sight.</p></div>
+    <div class="card"><h3><svg class="icon" aria-hidden="true"><use href="#i-foot"/></svg>Feet</h3><p>Nerve damage and poor blood flow can lead to sores that heal slowly. Daily care and yearly checks prevent most serious problems.</p></div>
+    <div class="card"><h3><svg class="icon" aria-hidden="true"><use href="#i-nerve"/></svg>Nerves</h3><p>Tingling, burning or numbness in the feet or hands, and sometimes gut, bladder or sexual problems. Treatment is available.</p></div>
+  </div>
+  <aside class="clin" aria-hidden="true"><b class="t">Clinician</b><ul>
+    <li>High CV risk: high-intensity statin regardless of lipids &middot; established ASCVD: LDL &lt;1.4 &middot; ACEi/ARB first line for HT with albuminuria</li>
+    <li>Aspirin: not for primary prevention; secondary prevention antiplatelet</li>
+    <li>SGLT2i/GLP-1RA for CVD, CKD or multiple risk factors independent of HbA1c (HF/CKD: SGLT2i first; ASCVD: either)</li>
+    <li>Screen at diagnosis: uACR + eGFR, retinal, foot + monofilament, lipids, BP, B12 if on metformin</li>
+  </ul></aside>
+</section>
+
+<!-- 3 -->
+<section class="sec" id="s3" aria-labelledby="h3t">
+  <h2 id="h3t"><span class="n" aria-hidden="true">3</span>Your targets and numbers</h2>
+  <div class="keys">
+    <div class="key"><div class="lbl">HbA1c (3-month average)</div><span class="big">7<small>%</small></span><div class="sub">(53 mmol/mol) &mdash; a general target. Your doctor may set a personal target for you.</div></div>
+    <div class="key"><div class="lbl">Blood pressure</div><span class="big">130/80</span><div class="sub">or lower, for most people with diabetes</div></div>
+    <div class="key"><div class="lbl">Home glucose, before meals</div><span class="big">4&ndash;8</span><div class="sub">mmol/L, if you check at home (or as advised)</div></div>
+    <div class="key"><div class="lbl">Home glucose, 2 hours after a meal</div><span class="big">&lt;10</span><div class="sub">mmol/L, if you check at home</div></div>
+    <div class="key blank"><div class="lbl">My personal HbA1c target</div><span class="big">&nbsp;</span><div class="sub">to be written in together</div></div>
+  </div>
+
+  <h3 style="margin-top:22px">Your regular checks</h3>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th scope="col">Check</th><th scope="col">How often</th><th scope="col">Why</th></tr></thead>
+    <tbody>
+      <tr><td>HbA1c blood test</td><td>Every 3&ndash;4 months</td><td>Shows your average sugar over the last few months</td></tr>
+      <tr><td>Kidneys: urine ACR and eGFR</td><td>At least once a year</td><td>Finds kidney changes early</td></tr>
+      <tr><td>Feet</td><td>At least once a year; more often if your feet are at higher risk</td><td>Finds nerve and blood-flow problems before sores appear</td></tr>
+      <tr><td>Eyes</td><td>Every 1&ndash;2 years (yearly if you are at higher risk)</td><td>Finds eye changes before they affect sight</td></tr>
+      <tr><td>Blood pressure and cholesterol</td><td>At your regular reviews</td><td>Protects your heart and blood vessels</td></tr>
+    </tbody>
+  </table></div>
+  <aside class="clin" aria-hidden="true"><b class="t">Clinician</b><ul>
+    <li>HbA1c: general &le;7% (53) &middot; lifestyle + metformin only &le;6% (42) &middot; + other non-insulin &le;6.5% (48) &middot; recurrent severe hypo / unaware &le;8% (64) &middot; older/frail ~8% (RACGP/DA)</li>
+    <li>BP &lt;130/80 (TG) [RACGP/DA &lt;140/90; CKD &lt;130/80] &middot; SMBG fasting/pre-meal 4&ndash;8, post-meal &lt;10 [RACGP/DA 4&ndash;7 / 5&ndash;10]</li>
+    <li>Recall: HbA1c + BP 3&ndash;4 months (TG; RACGP/DA 3&ndash;6) &middot; uACR + eGFR &ge;yearly &middot; eye 1&ndash;2 y (high-risk/ATSI yearly) &middot; foot yearly (very low) &rarr; 1&ndash;3 months (high) &middot; lipids yearly</li>
+    <li>Metformin: B12 yearly. uACR &ge;30 mg/mmol persistent or eGFR &lt;30 &rarr; nephrology</li>
+  </ul></aside>
+</section>
+
+<!-- 4 -->
+<section class="sec" id="s4" aria-labelledby="h4t">
+  <h2 id="h4t"><span class="n" aria-hidden="true">4</span>What you can do</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Food and drinks</h3>
+      <ul>
+        <li>Fill your plate with vegetables, and choose wholegrain or lower-GI carbohydrates (wholegrain bread, pasta, legumes, fruit, plain milk and yoghurt).</li>
+        <li>Carbohydrate raises blood sugar most, so watch your portions rather than cutting it out completely.</li>
+        <li>Swap sugary drinks for water. Go easy on chips, ice cream, chocolate and pastries &mdash; they add sugar and fat.</li>
+        <li>There is no single &ldquo;diabetes diet&rdquo;. A dietitian can build a plan that suits your food, culture and budget.</li>
+      </ul></div>
+    <div class="card"><h3>Move more</h3>
+      <ul>
+        <li><strong>150 minutes a week</strong> of brisk activity (walking, swimming, cycling), spread over most days.</li>
+        <li><strong>Strength exercises 2&ndash;3 times a week</strong> (weights, bands, body-weight), on non-consecutive days.</li>
+        <li>Break up long sitting: stand or walk for a few minutes <strong>every 30 minutes</strong>.</li>
+        <li>If you take insulin or a sulfonylurea, check your glucose before and during longer exercise, and carry fast sugar.</li>
+      </ul></div>
+    <div class="card"><h3>Weight</h3>
+      <p>Losing <strong>5&ndash;10%</strong> of your body weight makes a real difference to blood sugar, blood pressure and cholesterol. Small steady changes count. Some people can put diabetes into remission &mdash; ask us if you would like to talk about it.</p></div>
+    <div class="card"><h3>Smoking, alcohol and sleep</h3>
+      <ul>
+        <li><strong>Quit smoking</strong> &mdash; it is one of the best things you can do for your heart, feet and eyes. We can help.</li>
+        <li>Alcohol: no more than <strong>2 standard drinks a day</strong>, with alcohol-free days. Alcohol can cause low sugar, especially with insulin or a sulfonylurea.</li>
+        <li>Aim for regular, good-quality sleep, and tell us if you snore or feel very tired.</li>
+      </ul></div>
+    <div class="card"><h3>Look after your feet</h3>
+      <ul>
+        <li>Check both feet every day (use a mirror for the soles).</li>
+        <li>Wash and dry well, especially between the toes. Moisturise the skin but not between the toes.</li>
+        <li>Always wear well-fitting shoes and socks. Never walk barefoot.</li>
+        <li>See a podiatrist for nail and callus care, and tell us about any sore, blister or colour change straight away.</li>
+      </ul></div>
+    <div class="card"><h3>Your team</h3>
+      <p>You do not have to do this alone. Your GP, practice nurse, credentialled diabetes educator, dietitian, podiatrist and optometrist can all help.</p></div>
+  </div>
+  <aside class="clin" aria-hidden="true"><b class="t">Clinician</b><ul>
+    <li>Aerobic &ge;150 min/wk (&ge;3 days, no &gt;2 days off) + resistance 2&ndash;3/wk; break sitting every 30 min; weight loss 5&ndash;10%</li>
+    <li>Alcohol: TG &le;2 standard drinks/day + alcohol-free days [RACGP/DA &le;10/wk, &le;4/day]</li>
+    <li>Remission: HbA1c &lt;6.5% &ge;3 months off meds; low-energy diet 800&ndash;850 kcal/day 3&ndash;5 months (RACGP/DA; BMI 27&ndash;45, T2DM &lt;6 y, HbA1c &lt;12%) [TG ~800 kcal 8 weeks]. Bariatric: RACGP/DA BMI &ge;35 [TG &ge;40]</li>
+    <li>Insulin/SU users: BGL before exercise, hypo up to 48 h after; proliferative retinopathy / laser &lt;3 months: no vigorous exercise</li>
+    <li>Refer: accredited dietitian, diabetes educator, exercise physiologist, podiatry</li>
+  </ul></aside>
+</section>
+
+<!-- 5 -->
+<section class="sec" id="s5" aria-labelledby="h5t">
+  <h2 id="h5t"><span class="n" aria-hidden="true">5</span>Medicines</h2>
+  <p class="lead">Food and activity come first, and medicines work alongside them. Most people start with one tablet and add others over the years, because type 2 diabetes changes with time. <strong>Needing more medicine is normal &mdash; it is not a failure.</strong></p>
+  <div class="grid g2">
+    <div class="card med"><h3>Metformin <small>Usually the first medicine</small></h3>
+      <p>Helps your body use insulin better and lowers the sugar your liver releases.</p>
+      <ul><li>Take with food. The dose goes up slowly over 2&ndash;4 weeks to limit tummy upset, which often settles.</li><li>We check your kidney function every year, and vitamin B12 from time to time.</li><li>Pause it when you are dehydrated or vomiting (see &ldquo;If you are sick&rdquo; below).</li></ul></div>
+    <div class="card med heart"><h3>SGLT2 inhibitors <small>&ldquo;gliflozins&rdquo; &mdash; dapagliflozin, empagliflozin</small></h3>
+      <p>Make your kidneys pass extra sugar in the urine. They also <strong>protect your heart and kidneys</strong>, even when your sugar is already near target.</p>
+      <ul><li>Can cause genital thrush, urine infections and thirst.</li><li>Rarely they cause a serious problem called <strong>ketoacidosis</strong>, even with normal blood sugar.</li><li><strong>Stop them when you are unwell</strong> (vomiting, diarrhoea, not eating or drinking) and <strong>before some procedures</strong>. For a bowel prep for colonoscopy, this is usually 3 days before and the day of the procedure. Your doctor will tell you exactly when.</li></ul></div>
+    <div class="card med heart"><h3>GLP-1 medicines <small>semaglutide, dulaglutide, liraglutide</small></h3>
+      <p>Given by injection (most are once a week). They lower blood sugar, help with weight, and <strong>protect your heart</strong>.</p>
+      <ul><li>Nausea is the most common side effect and usually settles as the dose builds up.</li><li>Have an eye check before starting if you have not had one recently.</li><li>Vomiting or diarrhoea can stop other tablets (including the pill) being absorbed.</li><li>Tell your anaesthetist or endoscopy team you use one before any procedure. Do not stop it unless told to.</li></ul></div>
+    <div class="card med"><h3>Other tablets <small>gliptins, sulfonylureas, others</small></h3>
+      <ul><li><strong>Gliptins</strong> (sitagliptin, linagliptin&hellip;): gentle, low risk of low sugar. Not used together with a GLP-1 medicine.</li><li><strong>Sulfonylureas</strong> (gliclazide&hellip;): effective, but can cause <strong>low sugar</strong> and weight gain, especially if you skip meals.</li><li>Acarbose and pioglitazone are used less often. Ask us if you have been given one.</li></ul></div>
+    <div class="card med warnb"><h3>Insulin <small>a normal part of treatment later on</small></h3>
+      <p>If tablets and injections are no longer enough, insulin is the next step. It is not a punishment and it does not mean you did something wrong.</p>
+      <ul><li>Usually starts as one injection a day (long-acting insulin) at the same time each day, with a small dose that we adjust using your morning glucose readings.</li><li>Main risk is low sugar. We will teach you injection technique and what to do.</li></ul></div>
+  </div>
+
+  <div class="call amber"><h3>If you are sick (a &ldquo;sick-day plan&rdquo;)</h3>
+    <ul>
+      <li>Vomiting, diarrhoea, fever, or not eating and drinking? Drink plenty of fluids and check your glucose every 2&ndash;4 hours.</li>
+      <li><strong>SGLT2 inhibitor: stop it.</strong> If you have a ketone meter, check ketones, even if your glucose looks normal.</li>
+      <li><strong>Metformin:</strong> pause it if you are dehydrated. <strong>GLP-1:</strong> can be paused if you are vomiting. <strong>Sulfonylurea:</strong> keep taking it unless your sugar is running low or you cannot eat.</li>
+      <li><strong>Insulin: never stop it.</strong> Ask us if your dose needs changing.</li>
+      <li>Restart your medicines once you are eating and drinking normally. Ask us for a written sick-day plan.</li>
+    </ul></div>
+  <aside class="clin" aria-hidden="true"><b class="t">Clinician</b><ul>
+    <li>1st: lifestyle + metformin IR 500 mg bd &rarr; max 2 g over 2&ndash;4 wk (GFR 30&ndash;60: 500 mg daily &rarr; max 1 g; &lt;30 stop). PI: CrCl &lt;60 contraindicated (off-label use)</li>
+    <li>CVD / CKD / multiple risk: add SGLT2i or GLP-1RA regardless of HbA1c &middot; HF/CKD: SGLT2i first; ASCVD: either (TG)</li>
+    <li>Dapagliflozin 10 mg daily (start GFR &ge;25) &middot; empagliflozin 10 &rarr; 25 mg (start GFR &ge;30; PI &lt;20; KHA &lt;30 contraindicated: unresolved). Not &ge;85 y start empagliflozin. Euglycaemic DKA</li>
+    <li>Semaglutide 0.25 mg weekly &times;4 wk &rarr; 0.5 &rarr; max 1 mg (GFR &ge;30) &middot; dulaglutide 1.5 mg weekly &middot; liraglutide 0.6 &rarr; 1.2 &rarr; 1.8 mg daily. Eye check first (retinopathy). Never with DPP-4i. Pancreatitis hx: avoid</li>
+    <li>Sitagliptin 100 mg (GFR &gt;50; 30&ndash;50: 50; &lt;30: 25) &middot; linagliptin 5 mg no adjustment &middot; gliclazide MR 30 mg &rarr; max 120 mg</li>
+    <li>Basal insulin 0.2 U/kg (max 30 U) same time daily; +2&ndash;4 U every 3&ndash;7 days only if fasting above target; no increase after any hypo</li>
+    <li>Tirzepatide 2.5 mg weekly &rarr; +2.5 mg q&ge;4 wk, max 15 mg: not PBS for T2DM (private)</li>
+    <li>AE red flag, metformin: lactic acidosis (malaise, myalgia, breathlessness, drowsiness) &rarr; stop and seek care. Stop if vomiting or dehydrated</li>
+    <li>AE red flag, SGLT2i: euglycaemic DKA (tummy pain, N/V, fatigue; BGL may be normal) &rarr; stop, blood ketone, ED. Genital pain, redness or swelling with fever (Fournier) &rarr; stop, urgent care</li>
+    <li>AE red flag, GLP-1RA / tirzepatide: pancreatitis (severe constant abdominal pain &plusmn; vomiting) &rarr; stop, do not restart; gallbladder pain</li>
+    <li>AE red flag, DPP-4i: pancreatitis &rarr; stop; blisters (bullous pemphigoid); severe joint pain; HF symptoms (saxagliptin, alogliptin)</li>
+    <li>AE red flag, SU: severe or prolonged hypoglycaemia (confusion, drowsy) &rarr; glucose / glucagon / ED</li>
+    <li>AE red flag, pioglitazone: HF (breathlessness, oedema), haematuria. Acarbose + SU/insulin hypo &rarr; glucose, not sucrose</li>
+    <li>AE red flag, insulin: severe hypoglycaemia &rarr; glucose / glucagon / ED; never stop when sick</li>
+    <li>Procedure, SGLT2i: bowel prep &ge;4 d (3 before + day of) &middot; admission &ge;1 day 3 d (2 before + day of) &middot; day case: day of. Unwell within 1 wk: blood ketone even if BGL normal. GLP-1RA: do not stop; 24 h clear fluids then 6 h fast. Basal insulin continue. Metformin: stop day before only if eGFR &lt;45</li>
+    <li>Sick day (TG): SGLT2i stop + blood ketone; metformin hold if dehydration/AKI risk; SU continue unless BGL falling; DPP-4i continue; GLP-1RA hold if N/V; insulin never stop. SADMANS = AKI mnemonic (SU, ACEi, diuretic, metformin, ARB, NSAID, SGLT2i)</li>
+  </ul></aside>
+</section>
+
+<!-- 6 -->
+<section class="sec" id="s6" aria-labelledby="h6t">
+  <h2 id="h6t"><span class="n" aria-hidden="true">6</span>Warning signs &mdash; when to get help</h2>
+
+  <div class="call amber"><h3>Low blood sugar (a &ldquo;hypo&rdquo;): below 4.0 mmol/L</h3>
+    <p>Most likely if you take insulin or a sulfonylurea. Signs: shaky, sweaty, pale, fast heartbeat, anxious, very hungry, hard to concentrate, confused.</p>
+    <ol class="steps">
+      <li><strong>Treat:</strong> take <strong>15 g</strong> of fast sugar &mdash; 4 glucose tablets, or 6&ndash;7 jellybeans, or 150 mL regular soft drink (half a can), or 125 mL juice, or 3 teaspoons of sugar or honey.</li>
+      <li><strong>Retest in 10&ndash;15 minutes.</strong> If it is still below 4.0, treat again.</li>
+      <li>Once it is back up, have a slower carbohydrate, such as a slice of bread or a 250 mL glass of milk, unless a meal is due.</li>
+    </ol>
+    <p class="mini" style="margin:0">If you take insulin or a sulfonylurea, check your glucose before you drive. It should be 5 or above. If someone is drowsy, confused or unconscious, call <strong>000</strong> and do not put food or drink in their mouth.</p>
+  </div>
+
+  <div class="call red"><h3>Call your GP the same day, or go to the emergency department</h3>
+    <ul>
+      <li>Blood glucose over <strong>15 mmol/L twice</strong> in a row (2 hours apart), or you feel unwell.</li>
+      <li><strong>Feeling very unwell</strong> with vomiting, tummy pain, drowsiness, fast deep breathing or confusion. If you take an SGLT2 inhibitor, this can happen even when your glucose looks normal (ketones). Call <strong>000</strong> if you are very drowsy or cannot keep fluids down.</li>
+    </ul></div>
+  <div class="call red"><h3>Get urgent help (000 or emergency department)</h3>
+    <ul>
+      <li>Chest pain, pressure or tightness, especially with sweating or shortness of breath</li>
+      <li>Sudden change in vision, new flashes or floaters, or a curtain over part of your vision</li>
+      <li>A foot sore or ulcer, or a foot that is red, hot and swollen &mdash; do not wait for your next appointment</li>
+    </ul></div>
+  <aside class="clin" aria-hidden="true"><b class="t">Clinician</b><ul>
+    <li>Hypo &lt;4.0: 15 g fast carb &rarr; recheck 10&ndash;15 min &rarr; 15 g slow carb. Severe: glucagon 1 mg IM/SC (or IV 10% glucose 150&ndash;200 mL); no driving until reviewed; BGL &ge;5 to drive</li>
+    <li>DKA: pH &le;7.3, bicarb &le;15, blood ketone &gt;1.5 (&gt;0.5 abnormal; 0.6&ndash;1.5 early ketosis); glucose may be normal on SGLT2i. HHS: glucose &ge;30, osm &ge;320. Adult DKA/HHS: IV fluid; do not delay calling specialist</li>
+    <li>BGL &gt;15 &times;2 + symptoms &rarr; ED. New presentation BGL &gt;20 or HbA1c &gt;86 (10%) &rarr; consider insulin. Ketosis / weight loss &rarr; T1DM/LADA</li>
+    <li>Foot: active ulcer, Charcot (unilateral red hot swollen foot), ischaemia &rarr; same-day foot clinic / hospital. Acute vision change: urgent ophthalmology; DMO / PDR / moderate NPDR &rarr; ophthalmology (PDR within 1 week)</li>
+    <li>Refer nephrology: eGFR &lt;30, persistent uACR &ge;30 mg/mmol, eGFR fall &ge;25% in 12 months &middot; exertional chest pain: ED, no stress test</li>
+  </ul></aside>
+</section>
+
+<!-- 7 -->
+<section class="sec" id="s7" aria-labelledby="h7t">
+  <h2 id="h7t"><span class="n" aria-hidden="true">7</span>Next steps and when to come back</h2>
+  <div class="keys">
+    <div class="key blank"><div class="lbl">My next HbA1c blood test</div><span class="big">&nbsp;</span><div class="sub">date: write it in</div></div>
+    <div class="key"><div class="lbl">Regular review</div><span class="big">3&ndash;4<small> months</small></span><div class="sub">blood test and check-up with your GP</div></div>
+  </div>
+  <div class="grid g2">
+    <div class="card"><h3>Your care plan</h3>
+      <p>We can prepare a <strong>GP Chronic Condition Management Plan</strong> with you. It sets your goals and can give you Medicare-subsidised visits with allied health, such as a diabetes educator, dietitian, podiatrist or exercise physiologist. We review the plan with you about every 3 months.</p>
+      <p style="margin:0">Ask about group diabetes programs (up to 8 sessions a year) and about a Home Medicines Review with your pharmacist.</p></div>
+    <div class="card"><h3>Register with the NDSS</h3>
+      <p>The National Diabetes Services Scheme (run by Diabetes Australia) gives you subsidised supplies such as needles and test strips, plus education and support. We can help you register.</p></div>
+    <div class="card"><h3>Bring to every visit</h3>
+      <ul><li>Your glucose meter and any readings</li><li>A list of all your medicines, including over-the-counter and herbal</li><li>Your questions</li></ul></div>
+    <div class="card"><h3>Also ask us about</h3>
+      <ul><li>Vaccines, including flu and pneumococcal</li><li>Dental checks</li><li>Feeling low, stressed or worn out by diabetes &mdash; this is common and we can help</li><li>Planning a pregnancy, if that could apply to you</li></ul></div>
+    <div class="card"><h3>Trusted websites and phone numbers</h3>
+      <ul>
+        <li><a href="https://www.ndss.com.au/about-diabetes/type-2-diabetes/">NDSS: Type 2 diabetes</a> (ndss.com.au) &mdash; fact sheets and short online modules, in many languages</li>
+        <li><a href="https://www.ndss.com.au/managing-diabetes/blood-glucose-monitoring/hypoglycaemia/">NDSS: Low blood glucose (hypo)</a> &mdash; what to do, step by step</li>
+        <li><a href="https://www.ndss.com.au/managing-diabetes/sick-days-and-hospital-stays/sick-days/">NDSS: Sick days with diabetes</a> &mdash; ask us for your own written sick-day plan too</li>
+        <li><a href="https://www.keepsight.org.au/">KeepSight</a> (keepsight.org.au) &mdash; free reminders for your eye checks</li>
+        <li><a href="https://www.ndss.com.au/services/support-programs/mydesmond/">MyDESMOND</a> &mdash; online diabetes education program (needs NDSS registration)</li>
+        <li><strong>Quitline 13 7848</strong> &mdash; phone support to quit smoking</li>
+        <li>NDSS helpline <strong>1800 637 700</strong> (weekdays)</li>
+      </ul></div>
+  </div>
+  <aside class="clin" aria-hidden="true"><b class="t">Clinician</b><ul>
+    <li>GPCCMP: 965 prepare (12-monthly) / 967 review (3-monthly if needed); practice nurse 392/393. 2517/2521/2525: do not claim. DMMR 900 (chronic condition, goals not met)</li>
+    <li>Allied health: 5 individual visits/year; T2DM group: assessment 81100, then up to 8 sessions/year (81105 diabetes educator, 81115 exercise physiologist, 81125 dietitian)</li>
+    <li>Retinal camera 12325 (ATSI, 12-monthly) / 12326 (24-monthly). POC HbA1c 73812</li>
+    <li>PBS: SGLT2i with metformin, no HbA1c requirement if CVD / high CV risk / ATSI; GLP-1RA Authority (needs SGLT2i intolerance/contraindication); GLP-1RA + DPP-4i not allowed; tirzepatide not PBS for T2DM</li>
+    <li>Insulin/SU: notify licensing authority (insulin: conditional licence, 2-yearly review). Vaccines: annual flu; pneumococcal 21vPCV &times;1 (confirm eligibility). Pre-pregnancy: HbA1c &lt;6.5%, stop ACEi/ARB/statin, folic acid 2.5&ndash;5 mg</li>
+  </ul></aside>
+</section>
+
+<footer class="foot">
+  <p>This guide is general information for adults with type 2 diabetes in Australia. It does not replace advice from your own doctor or health team. Your targets and medicines may be different from those described here.</p>
+</footer>
+</main>
+
+<button class="cl-toggle" id="clt" type="button" aria-label="Page options" aria-pressed="false"><i></i></button>
+<script>
+(function(){
+  var b=document.body, btn=document.getElementById('clt');
+  function set(on){
+    b.classList.toggle('clin-on',on);
+    if(btn){btn.setAttribute('aria-pressed',on?'true':'false');}
+    var a=document.querySelectorAll('.clin');
+    for(var i=0;i<a.length;i++){a[i].setAttribute('aria-hidden',on?'false':'true');}
+  }
+  function toggle(){set(!b.classList.contains('clin-on'));}
+  document.addEventListener('keydown',function(e){
+    if(e.ctrlKey&&!e.altKey&&!e.metaKey&&(e.key==='.'||e.code==='Period')){e.preventDefault();toggle();}
+  });
+  if(btn){btn.addEventListener('click',toggle);}
+})();
+</script>
+</body>
+</html>
